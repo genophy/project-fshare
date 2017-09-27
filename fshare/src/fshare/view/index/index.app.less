@@ -1,0 +1,262 @@
+@import "../../style/less/site";
+@import "../../../../module/cmpt/less/eve_easyui";
+@import "../../../../module/cmpt/less/cssUploadDialog";
+
+div, button {
+  color:       cornflowerblue;
+  user-select: none;
+}
+
+div {
+  cursor: default;
+}
+
+button {
+  cursor: pointer;
+}
+
+button {
+  color:         cornflowerblue;
+  border:        1px solid cornflowerblue;
+  border-radius: 5px;
+  padding:       10px;
+  &.btn-reverse {
+	color:            whitesmoke;
+	background-color: cornflowerblue;
+  }
+}
+
+.address--container {
+  border:        1px solid cornflowerblue;
+  border-radius: 10px;
+  margin:        10px;
+  padding:       10px;
+
+  .label {
+	font-size:   18px;
+	font-weight: 800;
+	padding:     10px;
+  }
+  .txt {
+	color:      cornflowerblue;
+	padding:    10px;
+	word-break: break-all;
+	word-wrap:  break-word;
+
+  }
+  .ctrl {
+	border-radius: 5px;
+	margin-left:   10px;
+	padding:       10px;
+  }
+}
+
+.uploader-container {
+  text-align: center;
+  padding:    10px;
+  .btn {
+	margin-right: 10px;
+
+  }
+  .disk {
+	margin: auto;
+	&__progress {
+	  width:            100px;
+	  background-color: darkolivegreen;
+	  border-radius:    5px;
+	  &:before {
+		content:     '已用' attr(progress) '%';
+		width:       100px;
+		text-align:  center;
+		color:       whitesmoke;
+		position:    absolute;
+		padding:     10px 0px;
+		margin-left: -50px;
+	  }
+
+	  > div {
+		background-color: forestgreen;
+		border:           1px solid forestgreen;
+		border-radius:    5px;
+		width:            10%; /* Adjust with JavaScript */
+		height:           20px;
+		padding:          10px;
+	  }
+	}
+  }
+}
+
+.files--container {
+  padding: 10px;
+
+  &__dir {
+	display:        flex;
+	flex-direction: row;
+	align-items:    center;
+
+	.dir__root {
+	  border:        1px solid cornflowerblue;
+	  border-right:  5px solid cornflowerblue;
+	  border-bottom: 5px solid cornflowerblue;
+	  border-radius: 5px 15px 15px 5px;
+	  flex-shrink:   0;
+
+	  margin-right:  10px;
+	  padding:       10px;
+	}
+	.dir__children {
+	  display:   flex;
+	  flex-flow: row nowrap;
+	  overflow:  auto;
+	  .dir__child {
+		border:        1px solid cornflowerblue;
+		border-right:  5px solid cornflowerblue;
+		border-bottom: 5px solid cornflowerblue;
+		border-radius: 5px 15px 15px 5px;
+
+		margin-right:  5px;
+		padding:       10px;
+		position:      relative;
+
+		cursor:        pointer;
+		&:last-child {
+		  border-radius: 5px;
+		}
+	  }
+	}
+  }
+
+  &__list {
+	display:    flex;
+	flex-flow:  column;
+	padding:    20px 0px;
+	word-break: break-all;
+	word-wrap:  break-word;
+	&:after {
+	  content:    "--- END ---";
+	  text-align: center;
+	  color:      gainsboro;
+	  padding:    20px;
+	}
+
+	.item {
+	  color:         forestgreen;
+	  border:        1px solid forestgreen;
+	  border-radius: 15px;
+	  margin:        5px;
+	  padding:       10px 20px;
+	  display:       flex;
+	  flex-flow:     row nowrap;
+	  flex-shrink:   0;
+	  &.dir {
+		border-right:  10px solid forestgreen;
+		border-bottom: 5px solid forestgreen;
+	  }
+	  .item--check {
+		flex-shrink: 0;
+
+	  }
+	  .item--name {
+		flex-grow: 1;
+	  }
+
+	}
+
+  }
+
+}
+
+.ctrl__group {
+  display:         flex;
+  flex-flow:       row nowrap;
+  justify-content: center;
+
+  .ctrl__item {
+	flex-grow: 1;
+	margin:    5px;
+	padding:   10px 0px;
+
+	&.item-slide {
+	  font-size:     12px;
+	  color:         forestgreen;
+	  border-color:  forestgreen;
+	  border-top:    5px solid forestgreen;
+	  border-bottom: 5px solid forestgreen;
+	}
+  }
+
+}
+
+.ctrl__slide {
+  position: relative;
+
+  &__list {
+	position: fixed;
+	z-index:  11;
+	left:     10px;
+	right:    10px;
+	bottom:   10px;
+	.slide--group {
+	  background-color: whitesmoke;
+	  border:           1px solid forestgreen;
+	  border-radius:    20px 20px 0px 0px;
+	  > button {
+		color:         forestgreen;
+		border-color:  forestgreen;
+		border-radius: 10px;
+		margin:        5px 10px;
+		padding:       10px 80px;
+		&.default {
+		  color:            whitesmoke;
+		  background-color: forestgreen;
+		}
+	  }
+	}
+  }
+  &__shadow {
+	position:         fixed;
+	z-index:          10;
+	top:              0px;
+	right:            0px;
+	bottom:           0px;
+	left:             0px;
+	background-color: forestgreen;
+	opacity:          0.4;
+  }
+}
+
+.chk-box, .checkable-show {
+  display: none;
+}
+
+.btn-select-toggle {
+  &:after {
+	content: attr(no-selectable-txt);
+  }
+}
+
+.selectable {
+  .chk-box {
+	display:      block;
+	margin-right: 10px;
+	padding:      10px;
+	background:   url("/res/img/check-0.png") no-repeat center;
+
+	&.select-2 {
+	  background: url("/res/img/check-2.png") no-repeat center;
+	}
+	&.select-1 {
+	  background: url("/res/img/check-1.png") no-repeat center;
+	}
+  }
+  .btn-select-toggle {
+	&:after {
+	  content: attr(selectable-txt);
+	}
+  }
+  .selectable-hidden {
+	display: none;
+  }
+}
+
+

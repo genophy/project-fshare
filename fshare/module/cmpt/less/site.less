@@ -1,0 +1,140 @@
+@import "variable";
+
+html, body {
+
+  height:  100%;
+  padding: 0px;
+  margin:  0px;
+}
+
+input, button, textarea {
+  font-size:  16px;
+  border:     0px;
+  padding:    0px;
+  margin:     0px;
+  background: none;
+  outline:    none;
+
+}
+
+textarea {
+  resize: none;
+}
+
+.hidden {
+  display: none;
+}
+
+.flex-row, .flex-column {
+  display:   flex;
+  flex-wrap: nowrap;
+  &.wrap {
+	flex-wrap: wrap;
+  }
+  &.start {
+	justify-content: flex-start;
+  }
+  &.end {
+	justify-content: flex-end;
+  }
+  &.around {
+	justify-content: space-around;
+  }
+  &.between {
+	justify-content: space-between;
+  }
+  &.center {
+	justify-content: center;
+  }
+  &.middle {
+	align-items: center;
+  }
+}
+
+.flex-row {
+  flex-direction: row;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.flex-grow {
+  flex-grow: 1;
+}
+
+.flex-shrink {
+  flex-shrink: 0;
+}
+
+.scroll-y {
+  overflow-y:                 auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.word-break-all {
+  word-wrap:  break-word;
+  word-break: break-all;
+}
+
+.hidden {
+  display: none;
+}
+
+.mp_loop(@counter) when (@counter < 200) {
+  .m-all-@{counter} {
+	margin: @counter * 1px;
+  }
+  .m-v-@{counter} {
+	margin-top:    @counter * 1px;
+	margin-bottom: @counter   * 1px;
+  }
+  .m-h-@{counter} {
+	margin-left:  @counter   * 1px;
+	margin-right: @counter  * 1px;
+  }
+  .p-all-@{counter} {
+	padding: @counter  * 1px;
+  }
+  .p-v-@{counter} {
+	padding-top:    @counter  * 1px;
+	padding-bottom: @counter  * 1px;
+  }
+  .p-h-@{counter} {
+	padding-left:  @counter * 1px;
+	padding-right: @counter * 1px;
+  }
+  .m-top-@{counter} {
+	margin-top: @counter * 1px;
+  }
+  .p-top-@{counter} {
+	padding-top: @counter * 1px;
+  }
+  .m-right-@{counter} {
+	margin-right: @counter * 1px;
+  }
+  .p-right-@{counter} {
+	padding-right: @counter * 1px;
+  }
+  .m-bottom-@{counter} {
+	margin-bottom: @counter * 1px;
+  }
+  .p-bottom-@{counter} {
+	padding-bottom: @counter * 1px;
+  }
+  .m-right-@{counter} {
+	margin-right: @counter * 1px;
+  }
+  .p-right-@{counter} {
+	padding-right: @counter * 1px;
+  }
+  .m-left-@{counter} {
+	margin-left: @counter * 1px;
+  }
+  .p-left-@{counter} {
+	padding-left: @counter * 1px;
+  }
+  .mp_loop(@counter + 5);
+}
+
+.mp_loop(5);
